@@ -10,10 +10,10 @@ var Alexa = require('alexa-sdk');
 var APP_ID = "amzn1.ask.skill.8d76118f-abb4-4296-892c-384d62211bdb";
 
 var SKILL_NAME = "NeuroFacts";
-var GET_FACT_MESSAGE = "Here's your fact: ";
+var GET_FACT_MESSAGE = ["Here's your fact: ", "Alright, your NeuroFact is: ", "Okay, here is a NeuroFact: ", "Okay, your NeuroFact is: ", "Alright, here is a NeuroFact: "];
 var HELP_MESSAGE = "You can say tell me a Neuro Fact, or, you can say exit... What can I help you with?";
 var HELP_REPROMPT = "What can I help you with?";
-var STOP_MESSAGE = "Goodbye!";
+var STOP_MESSAGE = "I hope you've learned a lot about the brain! Goodbye!";
 
 //=========================================================================================================================================
 //TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/data
@@ -69,7 +69,8 @@ var handlers = {
         var factArr = data;
         var factIndex = Math.floor(Math.random() * factArr.length);
         var randomFact = factArr[factIndex];
-        var speechOutput = GET_FACT_MESSAGE + randomFact;
+        var responseIndex = Math.floor(Math.random()* GET_FACT_MESSAGE.length);
+        var speechOutput = GET_FACT_MESSAGE[responseIndex] + randomFact;
         this.emit(':tellWithCard', speechOutput, SKILL_NAME, randomFact)
     },
     'AMAZON.HelpIntent': function () {
