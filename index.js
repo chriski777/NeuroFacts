@@ -20,16 +20,35 @@ var STOP_MESSAGE = "Goodbye!";
 //=========================================================================================================================================
 var data = [
     "The human brain is the largest brain of all vertebrates relative to body size.",
-    "The human brain has around a 100 billion neurons.",
-    "The cerebrum makes up 85 percent of the brain's weight."
-    "The cerebrum has more neurons than all other parts of the brain combined.",
-    "The human brain weighs about 3 pounds."
-    "The central nervous system, or the CNS, is composed entirely of two kinds of specialized cells: neurons and glia."
-    "Only 5 minutes without oxygen can cause brain damage."
-    "Permanent brain damage can be cause by a 5 to 10 minute period with no oxygen."
-    "Hebb's law states that neurons that fire together wire together."
-    "A typical action potential lasts 1 millisecond."
-    ""
+    "The human brain has around a hundred billion neurons.",
+    "The cerebrum makes up 85 percent of the brain's weight.",
+    "The cerebellum has more neurons than all other parts of the brain combined.",
+    "The human brain weighs about 3 pounds.",
+    "The central nervous system, or the CNS, is composed entirely of two kinds of specialized cells: neurons and glia.",
+    "Only 5 minutes without oxygen can cause brain damage.",
+    "Permanent brain damage can be cause by a 5 to 10 minute period with no oxygen.",
+    "Hebb's law states that neurons that fire together wire together.",
+    "A typical action potential lasts 1 millisecond. It takes roughly 300 to 400 milliseconds to blink an eye.",
+    "A giant squid axon, which is up to 1 millimeter in diameter, is so large, it is visible by the naked eye. ",
+    "The cerebrum, or cortex, is divided into two hemispheres: the left and the right.",
+    "The cortex is split into four sections, or lobes: the frontal lobe, the parietal lobe, the occipital lobe, and the temporal lobe.",
+    "There are roughly 21 to 26 billion neurons in the cerebral cortex.",
+    "The human brain is connected by approximately 100 trillion synapses. A synapse is a connection between one neuron and another neuron.",
+    "Most neurons in the adult brain do not undergo cell division.",
+    "A typical neuron is made up of dendrites, an axon, and a soma. ",
+    "The two most common neurotransmitters in the brain are GABA and glutamate.",
+    "Sensory neurons respond to stimuli such as touch, smell, sound, or light.",
+    "Neurogenesis in the adult brain can still be seen in the dentate gyrus of the hippocampus and the olfactory bulb.",
+    "Neurons communicate using a combination of electrical and chemical signals.",
+    "A human's nervous system is composed of the central and peripheral nervous system. The central nervous system consists of the brain and spinal cord. The peripheral nervous system refers to all other nerves.",
+    "The central nervous system is composed of gray and white matter. White matter is made of long range axon tracts while gray matter consists of neuronal cell bodies and glial cells.",
+    "Humans do not have the biggest brains. Sperm whales hold that distinction with 17 pound brains.",
+    "Babies lose around half their neurons before they are born. ",
+    "The hippocampus is responsible for governing the processes that dictate memory storage. Damage to the hippocampus can lead to the inability to form memories.",
+    "The Corpus Callosum is a tract of nerve fibers that connects the two hemispheres of the human brain. The symptoms of epilepsy can sometimes be reduced by removing the corpus callosum.",
+    "Myelin is a fatty white substance that surrounds an axon. It acts as an insulator to make action potentials very fast. ",
+    "The brainstem is responsible for regulating the basic body processes of breathing, swallowing, heart rate, and blood pressure. ",
+    "The brain contains at least ten times more glial cells than neurons."
 ];
 
 //=========================================================================================================================================
