@@ -13,7 +13,7 @@ var SKILL_NAME = "NeuroFacts";
 var GET_FACT_MESSAGE = ["Here's your fact: ", "Alright, your NeuroFact is: ", "Okay, here is a NeuroFact: ", "Okay, your NeuroFact is: ", "Alright, here is a NeuroFact: "];
 var HELP_MESSAGE = "You can say tell me a Neuro Fact, or, you can say exit... What can I help you with?";
 var HELP_REPROMPT = "What can I help you with?";
-var STOP_MESSAGE = "I hope you've learned a lot about the brain! Goodbye!";
+var STOP_MESSAGE = ["I hope you've learned a lot about the brain! Goodbye!", "Okay, see you next time!", "Alright, see you later!", "Goodbye!"];
 
 //=========================================================================================================================================
 //TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/data
@@ -48,12 +48,16 @@ var data = [
     "The Corpus Callosum is a tract of nerve fibers that connects the two hemispheres of the human brain. The symptoms of epilepsy can sometimes be reduced by removing the corpus callosum.",
     "Myelin is a fatty white substance that surrounds an axon. It acts as an insulator to make action potentials very fast. ",
     "The brainstem is responsible for regulating the basic body processes of breathing, swallowing, heart rate, and blood pressure. ",
-    "The brain contains at least ten times more glial cells than neurons."
+    "The brain contains at least ten times more glial cells than neurons.",
+    "The human brain is the only organ that lacks nerves. The brain feels no pain!",
+    "The idea that some people are left-brained and some are right brained is a myth. The left side is not more logical than the right side of the brain. The right side is also not more creative than the left side.",
+    "Broca's area is a region in the frontal lobe that is responsible for speech production.",
+    "Aphasia is the inability to express or understand speech. It's often caused by brain damage.",
+    "Prosopagnosia, or face blindness, is a severe deficit in face perception. One with prosopagnosia often has trouble recognizing one's own face and the faces of familiar people.",
+    "Apraxia is a motor disorder in which the afflicted individual has trouble with motor planning. One with apraxia often finds it difficult to execute purposeful movements."
 ];
+var factArr = data;
 
-//=========================================================================================================================================
-//Editing anything below this line might break your skill.  
-//=========================================================================================================================================
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.APP_ID = APP_ID;
@@ -66,17 +70,26 @@ var handlers = {
         this.emit('GetNewFactIntent');
     },
     'GetNewFactIntent': function () {
-        var factArr = data;
+        var reprompt = "Would you like to hear another neuroFact? Say yes to hear another NeuroFact or say no to end this session. ";
         var factIndex = Math.floor(Math.random() * factArr.length);
         var randomFact = factArr[factIndex];
         var responseIndex = Math.floor(Math.random()* GET_FACT_MESSAGE.length);
         var speechOutput = GET_FACT_MESSAGE[responseIndex] + randomFact;
-        this.emit(':tellWithCard', speechOutput, SKILL_NAME, randomFact)
+        this.emit(':tellWithCard', speechOutput, SKILL_NAME, randomFact);
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = HELP_MESSAGE;
         var reprompt = HELP_REPROMPT;
         this.emit(':ask', speechOutput, reprompt);
+    },
+    'AMAZON.YesIntent': function() {
+        var factIndex = Math.floor(Math.random() * factArr.length);
+        var randomFact = factArr[factIndex];
+        this.emit(':tell', "Great! Here's another NeuroFact. " + randomFact);
+    },
+    'AMAZON.NoIntent': function() {
+        var responseIndex = Math.floor(Math.random()* STOP_MESSAGE.length);        
+        this.emit(':tell', STOP_MESSAGE[responseIndex]);
     },
     'AMAZON.CancelIntent': function () {
         this.emit(':tell', STOP_MESSAGE);
